@@ -1,0 +1,13 @@
+{
+  "name": "hannoverjs",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "helmet": "^3.1.0",
+    "request": "^2.78.0"
+  }
+}
