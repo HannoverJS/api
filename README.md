@@ -2,7 +2,7 @@
 
 > RESTful API for HannoverJS using Node.js & Express
 
-Hosted on and deployed with [`now`](https://zeit.co/now). Thanks to [Zeit](https://zeit.co) for this awesome service!
+Hosted on and deployed with [`now`](https://zeit.co/now). Thanks to [ZEIT](https://zeit.co) for this awesome service!
 
 ## Usage
 
