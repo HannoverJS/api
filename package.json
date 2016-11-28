@@ -1,6 +1,14 @@
 {
-  "name": "hannoverjs",
+  "name": "hannoverjs-api",
   "version": "0.1.0",
+  "description": "RESTful API for HannoverJS using Node.js & Express",
+  "private": true,
+  "license": "MIT",
+  "repository": "hannoverjs/hannoverjs-api",
+  "author": {
+    "name": "Tim Cheung",
+    "email": "tim@cheung.io"
+  },
   "scripts": {
     "start": "node index.js"
   },
