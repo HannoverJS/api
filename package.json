@@ -7,7 +7,7 @@
   "dependencies": {
     "cors": "^2.8.1",
     "express": "^4.14.0",
-    "helmet": "^3.1.0",
-    "request": "^2.78.0"
+    "got": "^6.6.3",
+    "helmet": "^3.1.0"
   }
 }
