@@ -9,12 +9,12 @@ Hosted on and deployed with [`now`](https://zeit.co/now). Thanks to [Zeit](https
 ### Base URL
 
 ```sh
-https://hannoverjs.now.sh
+https://hannoverjs-api.now.sh
 ```
 
 ### Endpoints
 
 - `/meetups`
-  - `/upcoming` – Get all upcoming meetups
+  - `/upcoming` – GET upcoming meetups
 - `/talks`
-  - `/upcoming` – Get all upcoming talks
+  - `/upcoming` – GET upcoming talks
