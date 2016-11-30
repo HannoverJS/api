@@ -10,6 +10,7 @@
     "email": "tim@cheung.io"
   },
   "scripts": {
+    "test": "eslint .",
     "start": "node index.js"
   },
   "dependencies": {
@@ -17,5 +18,12 @@
     "express": "^4.14.0",
     "got": "^6.6.3",
     "helmet": "^3.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.11.1",
+    "eslint-config-timche": "^2.0.1"
+  },
+  "eslintConfig": {
+    "extends": "timche"
   }
 }
