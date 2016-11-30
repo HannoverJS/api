@@ -1,4 +1,4 @@
-# hannoverjs-api
+# hannoverjs-api [![Build Status](https://travis-ci.org/HannoverJS/hannoverjs-api.svg?branch=master)](https://travis-ci.org/HannoverJS/hannoverjs-api)
 
 > RESTful API for HannoverJS using Node.js & Express
 
