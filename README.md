@@ -14,7 +14,6 @@ https://hannoverjs-api.now.sh
 
 ### Endpoints
 
-- `/meetups`
-  - `/upcoming` – GET upcoming meetups
-- `/talks`
-  - `/upcoming` – GET upcoming talks
+- `/meetups` – GET upcoming meetups
+- `/talks` – GET upcoming talks
+- `/team` – GET team
