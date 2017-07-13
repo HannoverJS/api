@@ -8,16 +8,18 @@ function fetch(url, opts) {
     return Promise.resolve(cacheData)
   }
 
-  const gotOpts = Object.assign({}, opts)
+  const gotOpts = Object.assign({ json: true }, opts)
 
-  gotOpts.header = Object.assign({
-    headers: {
-      'User-Agent': 'https://github.com/hannoverjs/hannoverjs-api'
-    }
-  }, gotOpts.headers)
+  gotOpts.header = Object.assign(
+    {
+      headers: {
+        'User-Agent': 'https://github.com/hannoverjs/hannoverjs-api'
+      }
+    },
+    gotOpts.headers
+  )
 
-  return got(url, gotOpts).then((response) => {
-    const body = JSON.parse(response.body)
+  return got(url, gotOpts).then(({ body }) => {
     cache.set(url, body)
     return body
   })

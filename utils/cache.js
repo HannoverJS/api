@@ -17,7 +17,7 @@ function get(key) {
   const { data, lastUpdated } = cache.get(key)
   const TTL = 3600000 // 1 hour
 
-  if ((Date.now() - lastUpdated) > TTL) {
+  if (Date.now() - lastUpdated > TTL) {
     return null
   }
 

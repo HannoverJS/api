@@ -1,29 +1,41 @@
 {
   "name": "hannoverjs-api",
   "version": "0.1.0",
-  "description": "RESTful API for HannoverJS using Node.js & Express",
   "private": true,
-  "license": "MIT",
+  "description": "RESTful API for HannoverJS using Node.js & Express",
   "repository": "hannoverjs/hannoverjs-api",
-  "author": {
-    "name": "Tim Cheung",
-    "email": "tim@cheung.io"
-  },
+  "license": "MIT",
+  "author": "Tim Cheung <tim@cheung.io>",
   "scripts": {
-    "test": "eslint .",
+    "precommit": "lint-staged",
+    "lint": "xo",
+    "test": "npm run lint",
+    "prettier": "prettier --single-quote --no-semi --write",
+    "prettify": "npm run prettier -- **/*.js",
     "start": "node index.js"
   },
   "dependencies": {
-    "cors": "^2.8.1",
-    "express": "^4.14.0",
-    "got": "^6.6.3",
-    "helmet": "^3.1.0"
+    "cors": "^2.8.4",
+    "express": "^4.15.3",
+    "got": "^7.1.0",
+    "helmet": "^3.6.1",
+    "humps": "^2.0.1"
   },
   "devDependencies": {
-    "eslint": "^3.11.1",
-    "eslint-config-timche": "^2.0.1"
+    "eslint-config-prettier": "^2.3.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.1",
+    "prettier": "^1.5.2",
+    "xo": "*"
   },
-  "eslintConfig": {
-    "extends": "timche"
+  "xo": {
+    "extends": "prettier"
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "npm run prettier",
+      "git add"
+    ]
   }
 }
