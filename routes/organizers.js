@@ -20,7 +20,7 @@ function organizers(req, res) {
     addOrganizer(
       'Robin Thrift',
       'Computer Science Student',
-      null,
+      'Leibniz University of Hanover',
       'RobinThrift'
     ),
     addOrganizer('Tim Cheung', 'Software Engineer', 'NewStore', 'timche_')
