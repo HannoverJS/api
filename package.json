@@ -1,6 +1,6 @@
 {
   "name": "hannoverjs-api",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "private": true,
   "description": "RESTful API for HannoverJS using Node.js & Express",
   "repository": "hannoverjs/hannoverjs-api",
