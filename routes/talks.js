@@ -4,7 +4,25 @@ const fetch = require('../utils/fetch')
 const GITHUB_ISSUES =
   'https://api.github.com/repos/HannoverJS/talks/issues?state=open&labels=Upcoming%20Talk'
 
-const talkRegExp = /^#{5} (.+)(?:\s+#{6} (.+))?(?:\s+#{6} \[(@.+)]\((.+)\))?\s+([\s\S]+)\s*$/
+const talkRegExp = /^#{5} (.+)(?:\s+#{6} (.+))?(?:\s+#{6} \[(.+)]\((.+)\))?\s+([\s\S]+)\s*$/
+
+function extractTalk(body) {
+  const [
+    name = null,
+    occupation = null,
+    socialName = null,
+    socialUrl = null,
+    description = null
+  ] = body.match(talkRegExp).slice(1, 6)
+
+  return {
+    name,
+    occupation,
+    socialName,
+    socialUrl,
+    description
+  }
+}
 
 function talks(req, res) {
   fetch(GITHUB_ISSUES).then(issues => {
@@ -26,13 +44,13 @@ function talks(req, res) {
           date.setDate(date.getDate() - 1)
           date.setHours(19)
 
-          const [
-            name = null,
-            occupation = null,
-            twitter = null,
-            twitterUrl = null,
-            description = null
-          ] = body.match(talkRegExp).slice(1, 6)
+          const {
+            name,
+            occupation,
+            socialName,
+            socialUrl,
+            description
+          } = extractTalk(body)
 
           return decamelizeKeys({
             title,
@@ -43,8 +61,8 @@ function talks(req, res) {
               name,
               avatarUrl,
               occupation,
-              twitter,
-              twitterUrl
+              socialName,
+              socialUrl
             }
           })
         }
@@ -52,5 +70,7 @@ function talks(req, res) {
     return res.send(body)
   })
 }
+
+talks.extractTalk = extractTalk
 
 module.exports = talks

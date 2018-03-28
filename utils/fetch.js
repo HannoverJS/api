@@ -1,28 +1,18 @@
 const got = require('got')
-const cache = require('./cache')
 
-function fetch(url, opts) {
-  const cacheData = cache.get(url)
-
-  if (cacheData) {
-    return Promise.resolve(cacheData)
-  }
-
+async function fetch(url, opts) {
   const gotOpts = Object.assign({ json: true }, opts)
 
-  gotOpts.header = Object.assign(
+  gotOpts.headers = Object.assign(
     {
-      headers: {
-        'User-Agent': 'https://github.com/hannoverjs/hannoverjs-api'
-      }
+      'User-Agent': 'https://github.com/hannoverjs/hannoverjs-api'
     },
     gotOpts.headers
   )
 
-  return got(url, gotOpts).then(({ body }) => {
-    cache.set(url, body)
-    return body
-  })
+  const { body } = await got(url, gotOpts)
+
+  return body
 }
 
 module.exports = fetch

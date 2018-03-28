@@ -1,17 +1,8 @@
 {
-  "name": "hannoverjs-api",
-  "version": "1.1.0",
   "private": true,
-  "description": "RESTful API for HannoverJS using Node.js & Express",
-  "repository": "hannoverjs/hannoverjs-api",
-  "license": "MIT",
-  "author": "Tim Cheung <tim@cheung.io>",
   "scripts": {
     "precommit": "lint-staged",
-    "lint": "xo",
-    "test": "npm run lint",
-    "prettier": "prettier --single-quote --no-semi --write",
-    "prettify": "npm run prettier -- **/*.js",
+    "test": "ava",
     "start": "node index.js"
   },
   "dependencies": {
@@ -23,19 +14,14 @@
     "humps": "^2.0.1"
   },
   "devDependencies": {
-    "eslint-config-prettier": "^2.3.0",
+    "ava": "^0.25.0",
     "husky": "^0.14.3",
     "lint-staged": "^4.0.1",
-    "prettier": "^1.5.2",
-    "xo": "*"
-  },
-  "xo": {
-    "extends": "prettier"
+    "prettier": "^1.5.2"
   },
   "lint-staged": {
     "*.js": [
-      "npm run lint",
-      "npm run prettier",
+      "prettier --single-quote --no-semi --write",
       "git add"
     ]
   }
