@@ -1,17 +1,23 @@
-# hannoverjs-api
+# HannoverGophers-api
 
-[![Build Status](https://travis-ci.org/HannoverJS/hannoverjs-api.svg?branch=master)](https://travis-ci.org/HannoverJS/hannoverjs-api) [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-
-> RESTful API for HannoverJS using Node.js & Express
-
-Hosted on and deployed with [`now`](https://zeit.co/now) by [▲ZEIT](https://zeit.co).
+> RESTful API for Hannover Gophers
 
 ## Usage
+
+### Create `.env` file
+
+```
+cat <<EOF
+API_VERSION=1.0
+API_PORT=6789
+LOG_LEVEL=debug
+EOF > .env1
+```
 
 ### Root URL
 
 ```
-https://hannoverjs-api.now.sh
+https://localhost:<port>.
 ```
 
 ### Ressources
@@ -23,7 +29,7 @@ Gets upcoming events sorted by date.
 ##### URL
 
 ```
-GET https://hannoverjs-api.now.sh/events
+GET https://localhost:<port>/events
 ```
 
 ##### Example Response
@@ -55,7 +61,7 @@ Gets upcoming talks.
 ##### URL
 
 ```
-GET https://hannoverjs-api.now.sh/talks
+GET https://localhost:<port>/talks
 ```
 
 ##### Example Response
@@ -86,7 +92,7 @@ Gets the organizers.
 ##### URL
 
 ```
-GET https://hannoverjs-api.now.sh/organizers
+GET https://localhost:<port>/organizers
 ```
 
 ##### Example Response
