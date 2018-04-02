@@ -7,11 +7,9 @@
 ### Create `.env` file
 
 ```
-cat <<EOF
 API_VERSION=1.0
 API_PORT=6789
 LOG_LEVEL=debug
-EOF > .env1
 ```
 
 ### Root URL
