@@ -4,6 +4,8 @@ import (
 	"os"
 	"time"
 
+	"github.com/sirupsen/logrus"
+
 	"github.com/eladmica/go-meetup/meetup"
 )
 
@@ -37,7 +39,8 @@ func (u *Event) FetchAll() []Event {
 
 	meetups, err := client.GetEvents("Hannover-Gophers", nil)
 	if err != nil {
-		panic(err)
+		logrus.Info("Could not fetch Meetups")
+		logrus.Errorf("Could not fetch Meetups\n%v", err)
 	}
 
 	// https://stackoverflow.com/questions/24987131/how-to-parse-unix-timestamp-in-golang
