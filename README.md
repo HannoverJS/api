@@ -8,8 +8,9 @@
 
 ```
 API_VERSION=1.0
-API_PORT=6789
+API_PORT=8000
 LOG_LEVEL=debug
+MEETUP_API_KEY=<meetup-api-key>
 ```
 
 ### Root URL

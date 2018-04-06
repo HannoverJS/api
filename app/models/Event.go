@@ -1,5 +1,14 @@
 package models
 
+import (
+	"os"
+	"time"
+
+	"github.com/sirupsen/logrus"
+
+	"github.com/eladmica/go-meetup/meetup"
+)
+
 // Event ...
 type Event struct {
 	ID int `json:"id"`
@@ -25,9 +34,31 @@ type Venue struct {
 func (u *Event) FetchAll() []Event {
 	var events []Event
 
-	events = append(events, Event{
-		1, "2018-04-26T16:30:00.000Z", "2017-09-06T10:43:39.000Z", "https://www.meetup.com/de-DE/Hannover-Gophers/", &Venue{"Hannover Gophers", 52.3844108581543, 9.753049850463867, "Hannover", "de", "Germany", "Ring the bell \"HannoverJS\", you can find us on the 2nd floor."},
-	})
+	client := meetup.NewClient(nil)
+	client.Authentication = meetup.NewKeyAuth(os.Getenv("MEETUP_API_KEY"))
+
+	meetups, err := client.GetEvents("Hannover-Gophers", nil)
+	if err != nil {
+		logrus.Info("Could not fetch Meetups")
+		logrus.Errorf("Could not fetch Meetups\n%v", err)
+	}
+
+	// https://stackoverflow.com/questions/24987131/how-to-parse-unix-timestamp-in-golang
+	// Double check Date time format!
+	for id, event := range meetups {
+		events = append(events, Event{
+			id,
+			time.Unix(int64(event.Time/1000), 0).Format(time.RFC3339),
+			time.Unix(int64(event.Updated/1000), 0).Format(time.RFC3339),
+			"https://www.meetup.com/de-DE/Hannover-Gophers/events/" + event.ID,
+			&Venue{"Hannover Gophers",
+				event.Venue.Lat,
+				event.Venue.Lon,
+				event.Venue.City,
+				event.Venue.Country,
+				event.Venue.LocalizedCountryName,
+				"2. OG"}})
+	}
 
 	return events
 }

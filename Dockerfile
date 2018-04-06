@@ -14,6 +14,7 @@ RUN apk add --no-cache git \
     && go get github.com/phyber/negroni-gzip/gzip \
     && go get github.com/rs/cors \
     && go get github.com/unrolled/secure \
+    && go get github.com/eladmica/go-meetup/meetup \
     && go install github.com/HannoverGophers/hannovergophers-api \
     && apk del git
 RUN /bin/ash -l -c "ls -lah /go/bin/"
