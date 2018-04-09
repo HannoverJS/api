@@ -10,6 +10,7 @@
 API_VERSION=1.0
 API_PORT=8000
 LOG_LEVEL=debug
+GITHUP_TALK_API=https://api.github.com/repos/HannoverGophers/talks/issues?state=open&labels=Upcoming%20Talk
 MEETUP_API_KEY=<meetup-api-key>
 ```
 
