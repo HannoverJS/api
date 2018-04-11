@@ -1,6 +1,13 @@
 const got = require('got')
+const cache = require('./cache')
 
 async function fetch(url, opts) {
+  const cacheData = cache.get(url)
+
+  if (cacheData) {
+    return cacheData
+  }
+
   const gotOpts = Object.assign({ json: true }, opts)
 
   gotOpts.headers = Object.assign(
