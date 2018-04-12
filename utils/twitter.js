@@ -8,11 +8,11 @@ let accessToken = null
 
 async function twitter(endpoint) {
   if (!accessToken) {
-    const { access_token } = JSON.parse(
+    const res = JSON.parse(
       await fetch(`${BASE_URL}/oauth2/token`, {
         method: 'POST',
         headers: {
-          Authorization: `Basic ${new Buffer(
+          Authorization: `Basic ${Buffer.from(
             `${TWITTER_CONSUMER_KEY}:${TWITTER_CONSUMER_SECRET}`
           ).toString('base64')}`,
           'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
@@ -22,7 +22,7 @@ async function twitter(endpoint) {
       })
     )
 
-    accessToken = access_token
+    accessToken = res.access_token
   }
 
   return fetch(`${BASE_URL}/1.1/${endpoint}`, {

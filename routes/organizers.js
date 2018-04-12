@@ -5,6 +5,7 @@ async function getOrganizers(twitterUsernames) {
     `users/lookup.json?screen_name=${twitterUsernames.join(',')}`
   )
 
+  /* eslint-disable camelcase */
   return organizers.map(
     ({
       name,
@@ -21,6 +22,7 @@ async function getOrganizers(twitterUsernames) {
         screen_name
       }
     })
+    /* eslint-enable camelcase */
   )
 }
 module.exports = async (req, res) =>
