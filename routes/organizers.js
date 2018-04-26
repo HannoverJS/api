@@ -32,6 +32,7 @@ module.exports = async (req, res) =>
       'PascalPrecht',
       'JanPantel',
       'RobinThrift',
-      'timche_'
+      'timche_',
+      'maxrimue'
     ])
   )
