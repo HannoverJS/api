@@ -38,7 +38,8 @@ function talks(req, res) {
           body,
           user: { avatarUrl },
           milestone: { dueOn },
-          updatedAt
+          updatedAt,
+          labels
         }) => {
           const date = new Date(dueOn)
           date.setDate(date.getDate() - 1)
@@ -52,11 +53,18 @@ function talks(req, res) {
             description
           } = extractTalk(body)
 
+          const lightningTalkLabelName = 'Lightning Talk'
+          const isLightningTalk = labels.some(
+            label => label.name === lightningTalkLabelName
+          )
+
           return decamelizeKeys({
             title,
             description,
             date,
             updatedAt,
+            isLightningTalk,
+            labels: labels.filter(obj => obj.name !== lightningTalkLabelName),
             speaker: {
               name,
               avatarUrl,
