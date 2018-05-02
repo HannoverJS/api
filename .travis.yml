@@ -5,14 +5,8 @@ cache: npm
 before_install: npm install -g now
 script: echo "Hello World."
 deployment:
-  # deploy develop to the staging environment
-  # - provider: script
-  #   script: bash scripts/deploy.sh staging
-  #   on:
-  #     branch: develop
-  # deploy master to production
   - provider: script
-    script: bash deploy.sh production
+    script: bash deploy.sh
     on:
       branch: master
 env:
