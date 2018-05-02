@@ -3,7 +3,17 @@ node_js:
 - "node"
 cache: npm
 before_install: npm install -g now
-deployment: now --local-config=now.json --token=$NOW_TOKEN --docker && now alias --token=$NOW_TOKEN
+deployment:
+  # deploy develop to the staging environment
+  # - provider: script
+  #   script: bash scripts/deploy.sh staging
+  #   on:
+  #     branch: develop
+  # deploy master to production
+  - provider: script
+    script: bash deploy.sh production
+    on:
+      branch: master
 env:
   global:
     secure: kfbBRmYU6zbOfDdUcTuSV6+1qWTn31MdZDvfliXPN/9hK6En3zJtL3MjQdCmcbxOSMhLNF6Sg16nP6ls9A18dhlgyKlJr53NvXK4cUmjkyHtk705xi8x4O6vMIFuDevirPStddjb6VJdVqvipYe3Tg6kXWB9/cedHV3IlCCCM2tRwbF8MnBWOzuo+53qyuHO2U99PiLaEoUHTr6YJrhMisJHuNJxtYmicw2XJs34/5O87KW1cZpAbqqnhO5MIEWFf+oD4gRU/1qocaGoZPI/r1n0+JJLLlMd49/UtCA5y38QelV9zoFIvE+x5lE2DaFkEycrNcJFXXli1u3BpOAvVt5y7pwDp+6a97W8ZRA7KTCtkcB3lSiPapQuoH82nQvIkJ7HAWPHmrPsgtZaf5A2I4FyiWGB7m+DN1Dir53vTpNaEWv1Rdbmpi84FSrqhsR71FUuejsHlUlBLOnRBTeDHbRs2OifVHtzkkSLEi+A4OpOKtGpVUuQKRjNZdyKFt+YauopLOyCEmBDL45LNTTSwxcf6eWnNEeLHNxb3kcDm8+3UOjbVEf0o45I/dMjS1+n6XqvVX5hIQm9AIMpbN8w7eB/iJrXRcT6eoPKh2E8YDOBRw7AaeUdiRAAwtLlaI8hXhCw5Q40lixvw2JOGSGM2+3WyrRC4VrpC6qgBqtaCVw=
