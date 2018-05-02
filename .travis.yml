@@ -3,6 +3,7 @@ node_js:
 - "node"
 cache: npm
 before_install: npm install -g now
+script: echo "Hello World."
 deployment:
   # deploy develop to the staging environment
   # - provider: script
