@@ -18,6 +18,7 @@ async function fetch(url, opts) {
   )
 
   const { body } = await got(url, gotOpts)
+  cache.set(url, body)
 
   return body
 }
