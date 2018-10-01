@@ -47,7 +47,7 @@ func (u *Event) FetchAll() []Event {
 	// Double check Date time format!
 	events := make([]Event, len(meetups))
 	for id, event := range meetups {
-		events = append(events, Event{
+		events[id] = Event{
 			id,
 			time.Unix(int64(event.Time/1000), 0).Format(time.RFC3339),
 			time.Unix(int64(event.Updated/1000), 0).Format(time.RFC3339),
@@ -58,7 +58,7 @@ func (u *Event) FetchAll() []Event {
 				event.Venue.City,
 				event.Venue.Country,
 				event.Venue.LocalizedCountryName,
-				"2. OG"}})
+				"2. OG"}}
 	}
 
 	return events
