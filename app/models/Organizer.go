@@ -21,11 +21,11 @@ func (u *Organizer) FetchAll() []Organizer {
 	var organizers []Organizer
 
 	organizers = append(organizers, Organizer{
-		1, "Christoph Voigt", "Scrum Masterchen", &Twitter{"https://avatars3.githubusercontent.com/u/2982698?s=400&u=ec9c8963288004980eab6b0371f8e49c9f3f2933&v=4", "https://avatars3.githubusercontent.com/u/2982698?s=400&u=ec9c8963288004980eab6b0371f8e49c9f3f2933&v=4", "vogti"},
+		1, "Christoph Voigt", "DevOps Engineer", &Twitter{"https://avatars3.githubusercontent.com/u/2982698?s=400&u=ec9c8963288004980eab6b0371f8e49c9f3f2933&v=4", "https://avatars3.githubusercontent.com/u/2982698?s=400&u=ec9c8963288004980eab6b0371f8e49c9f3f2933&v=4", "vogti"},
 	})
 
 	organizers = append(organizers, Organizer{
-		2, "Tobias Pauling", "Software Engineer", &Twitter{"https://avatars3.githubusercontent.com/u/13135987?s=400&v=4", "https://avatars3.githubusercontent.com/u/13135987?s=400&v=4", "tpauling"},
+		2, "Tobias Pauling", "Senior Software Engineer", &Twitter{"https://avatars3.githubusercontent.com/u/13135987?s=400&v=4", "https://avatars3.githubusercontent.com/u/13135987?s=400&v=4", "tpauling"},
 	})
 
 	return organizers
